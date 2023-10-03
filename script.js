@@ -36,29 +36,13 @@ class Tamagotchi{
     }
 }
 
-// UPDATE VAULE
-document.querySelector("hunger").innerText = Tamagotchi.hunger;
-document.querySelector("sleepiness").innerText = Tamagotchi.sleepines;
-document.querySelector("boredom").innerText = Tamagotchi.boredom;
-document.querySelector("age").innerText = Tamagotchi.age;
 
-// let timer = setInterval(() => {
-//     this.age()
-//     if (this.hunger >=10, this.sleepines >=10, this.bored >=10){
-//         alert("Your Pet Has Died")
-//     }
-// })
-
-// BTN EVENT LISTENERS
-
-const hungerButton = document.querySelector("hunger.button").addEventListener("click", function(){
-    alert("clicked")
+// ADDED IN EVENT LISTENERS
+const hungerButton = document.querySelector(".hungerbutton")
+hungerButton.addEventListener("click", () => {
+    Tamagotchi.hunger
 })
 
-// let sleepButton = document.querySelector("sleep.butoon")
-// let boredButton = document.querySelector("bored.button")
-// let onButton = document.querySelector("on.button")
-// let offButton = document.querySelector("off.button")
-
-
-
+const sleepButton = document.querySelector(".sleepbutton")
+const boredButton = document.querySelector(".boredbutton")
+const ageButton = document.querySelector(".agebutton")
