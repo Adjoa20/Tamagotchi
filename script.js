@@ -35,24 +35,37 @@ class Tamagotchi{
             this.aged--
         }
     }
-}
 
-function increaseUp(){
+// INCREASE VALUE FOR TAMAGOTCHI 
+    increaseUp(){
     this.hunger++;
     this.sleepines++;
     this.boredom++;
     this.age++;
     if (this.hunger >=10 || this.sleepines >=10 || this.boredom >=10){
         alert("Your Pet Has Died")
+        }
     }
+
+    deadPet(){
+
+    }
+
 }
+// SET INTERVAL
+let timer = setInterval(() => {
+    this.age()
+    if (this.hunger >=10, this.sleepines >=10, this.bored >=10){
+        alert("Your Pet Has Died")
+    }
+},6000)
 
 
 
 // ADDED IN EVENT LISTENERS
 const hungerButton = document.querySelector(".hungerbutton")
 hungerButton.addEventListener("click", () => {
-    this.hunger
+    this.hunger()
 })
 
 const sleepButton = document.querySelector(".sleepbutton")
