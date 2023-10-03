@@ -1,9 +1,44 @@
 body{
+    background-image: url("https://png.pngtree.com/background/20230422/original/pngtree-green-bamboo-forest-green-bamboo-forest-plants-natural-scenery-cartoon-decoration-picture-image_2454595.jpg") ;
     height: 100vh;
     width: 100vw;
     background-color: beige;
+    background-position: center;
+    background-size: cover;
+}
+  
+img{
+    height: 300px;
+    display: block;
+    margin:auto;
 }
 
-img{
-    height: 100px;
+button{
+    font-size: 40p;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px
+}
+#container{
+    text-align: center;
+}
+
+h1{
+    color: white
+}
+
+caption, th, td{
+   padding: 1rem;
+}
+
+caption, th{
+   text-align: left;
+   
+}
+
+table{
+    width:100%;
+    display: block;
+    margin: center;
+    margin-right: auto;
 }
