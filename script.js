@@ -76,3 +76,25 @@ console.log(tamagotchiPet)
 //TO INCREASE THE VAULE
 tamagotchiPet.increaseValues()
 
+// ADDED IN EVENT LISTENERS FOR BUTTONS
+const hungerButton = document.getElementById(".hunger")
+hungerButton.addEventListener("click", () => {
+    tamagotchiPet.feedPet()
+})
+
+const sleepButton = document.getElementById(".sleep")
+sleepButton.addEventListener("click", () => {
+    tamagotchiPet.sleepPet()
+})
+
+const boredButton = document.getElementById(".bored")
+boredButton.addEventListener("click", () => {
+    tamagotchiPet.boredPet()
+})
+
+const ageButton = document.getElementById(".age")
+ageButton.addEventListener("click", () => {
+    tamagotchiPet.agedPet()
+})
+
+
