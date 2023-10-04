@@ -2,3 +2,34 @@
     text-align: center;
     margin-top: 50px;
 }
+
+body{
+    background-image: url();
+    height: 100vh;
+    width: 100vw;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+
+h1{
+    text-align: center;
+    font-family: fantasy;
+    font-size: 100px;
+    font-weight: 100;
+}
+
+h2{
+    text-align: center;
+    font-family: fantasy;
+    font-size: 25px;
+    font-weight: 900;
+}
+
+p{
+    text-align: center;
+    font-family: fantasy;
+    font-size: 15.5px;
+    font-weight: 900;
+}

@@ -1,6 +1,6 @@
 // alert("JS is linked!")
-let titleElement = document.getElementById('title')
-let petName = prompt('what is your pet name?')
+let titleElement = document.getElementById('title2')
+// let petName = prompt('what is your pet name?')
 titleElement.innerHTML = `Welcome To ${petName}'s Room!`
 
 class Tamagotchi{
@@ -18,4 +18,7 @@ class Tamagotchi{
 
 // INSTANTIATED THE TAMAGOTCHI
 const tamagotchiPet = new Tamagotchi('petName')
+
+// LOG THE PET TO THE CONSOLE 
+console.log(tamagotchiPet)
 
