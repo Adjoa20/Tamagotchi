@@ -23,6 +23,9 @@ class Tamagotchi {
 
                 // CHECK TO SEE IF PET IS DEAD 
                 this.yourPetDied();
+
+                // THIS IS DISPLAY VALUES ON SCREEN
+                this.displayValues();
                 // THIS IS TO DISPLAY THE METRICS 
                 console.log(`${this.name}'s hunger level is at: ${this.hunger}`);
                 console.log(`${this.name}'s sleepiness level is at: ${this.sleepiness}`);
@@ -36,19 +39,21 @@ class Tamagotchi {
         const ageUpInterval = setInterval(() => {
             if (this.isAlive) {
                 this.age++;
-                console.log(`Your pet ${this.name} has aged!: ${this.age}`)
+                alert(`Your pet ${this.name} has aged!: ${this.age}`)
                 // LEVEL UP PET AT AGE INCREMENTS 
                 this.levelUp()
+                // THIS IS DISPLAY AGE ON SCREEN
+                this.displayValues();
             } else {
                 clearInterval(ageUpInterval)
             }
-        }, 500000) //AGE WILL INCREASE EVERY XX MINTUES 
+        }, 5000) //AGE WILL INCREASE EVERY XX MINTUES 
     }
     // NEED TO CHECK'S PET'S DEATH 
     yourPetDied() {
         if (this.hunger >= 10 || this.sleepiness >= 10 || this.boredom >= 10) {
             this.isAlive = false;
-            console.log(`${this.name} has died! WHOOMP WHOOMP`);
+            alert(`${this.name} has died! WHOOMP WHOOMP`);
         }
     }
 
@@ -63,7 +68,14 @@ class Tamagotchi {
     // METHOD TO LEVEL UP THE PET 
     level() {
         this.isLevel = true;
-        console.log(`${this.name} has leveled up into a new form`)
+        alert(`${this.name} has leveled up into a new form`)
+    }
+    //ADDING DISPLAY OF VALUES
+    displayValues() {
+        document.getElementById("hunger-display").innerHTML = `Hunger: ${this.hunger}/10`;
+        document.getElementById("sleepiness-display").innerHTML = `Sleepiness: ${this.sleepiness}/10`;
+        document.getElementById("boredom-display").innerHTML = `Boredom: ${this.boredom}/10`;
+        document.getElementById("age-display").innerHTML = `Age: ${this.age}`;
     }
 }
 
@@ -77,23 +89,28 @@ console.log(tamagotchiPet)
 tamagotchiPet.increaseValues()
 
 // ADDED IN THE FUNCTIONS FOR THE BUTTONS
-function feedPet(){
+function feedPet() {
     tamagotchiPet.feedPet
 }
 
-function sleepPet(){
+function sleepPet() {
     tamagotchiPet.sleepPet
 }
 
-function boredPet(){
+function boredPet() {
     tamagotchiPet.boredPet
 }
 
+function agedPet() {
+    tamagotchiPet.agedPet
+}
+
 // ADDED IN EVENT LISTENERS FOR BUTTONS
-const hungerButton = document.getElementById(".hunger")
+let hungerButton = document.querySelector(".hungry")
 hungerButton.addEventListener("click", () => {
     tamagotchiPet.feedPet()
 })
+
 
 const sleepButton = document.getElementById(".sleep")
 sleepButton.addEventListener("click", () => {

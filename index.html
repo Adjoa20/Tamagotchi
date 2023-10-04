@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <title>My Tamagotchi</title>
 </head>
@@ -27,11 +29,11 @@
             <p id="age-display"></p>
         </div>
 
-        <button class="hunger" id="hunger">I'm Hungry</button>
-        <button class="sleep" id="sleepiness">I'm Sleepy</button>
-        <button class="bored" id="boredom">I'm Bored</button>
-        <button class="lights on" , class="lightMode" id="lo">Wake Up</button>
-        <button class='lights off' , class="darkMode" id='lights off'>Sleep</button>
+        <button class="hunger" onclick="feedPet()" id="hungry">I'm Hungry</button>
+        <button class="sleep" onclick="sleepPet()" id="sleepiness">I'm Sleepy</button>
+        <button class="bored" onclick="boredPet()" id="boredom">I'm Bored</button>
+        <button class="lights on" , class="lightMode" id="lightson">Wake Up</button>
+        <button class='lights off' , class="darkMode" id='lightsoff'>Sleep</button>
     </div>
 
 </body>
