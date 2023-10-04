@@ -33,3 +33,40 @@ p{
     font-size: 15.5px;
     font-weight: 900;
 }
+
+img{
+    height: 300px;
+    display: block;
+    margin:auto;
+}
+
+#red-panda{
+
+}
+
+button{
+    display: grid;
+    font-size: 40p;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px
+}
+
+#hunger{
+    background-color: bisque;
+    text-align: center;
+    color: black;
+}
+
+#sleepiness{
+    background-color: bisque;
+    text-align: center;
+    color: black;
+}
+
+#boredom{
+    background-color: bisque;
+    text-align: center;
+    color: black;
+}
+
