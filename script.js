@@ -2,6 +2,7 @@
 let titleElement = document.getElementById('title2')
 let petName = prompt('what is your pet name?')
 titleElement.innerHTML = `Welcome To ${petName}'s Room!`
+const panda = document.getElementById("red-panda")
 
 class Tamagotchi {
     constructor(name) {
@@ -34,7 +35,7 @@ class Tamagotchi {
                 // IF THE PET IS DEAD, CLEAR THE INTERVAL 
                 clearInterval(vauleIncreaseInterval);
             }
-        }, 9000)
+        }, 10000)
         // INCREASE THE AGE INTERVAL 
         const ageUpInterval = setInterval(() => {
             if (this.isAlive) {
@@ -47,7 +48,7 @@ class Tamagotchi {
             } else {
                 clearInterval(ageUpInterval)
             }
-        }, 5000) //AGE WILL INCREASE EVERY XX MINTUES 
+        }, 10000) //AGE WILL INCREASE EVERY XX MINTUES 
     }
     // NEED TO CHECK'S PET'S DEATH 
     yourPetDied() {
@@ -59,14 +60,21 @@ class Tamagotchi {
 
     // METHOD CHECK TO SEE IF PET HAS LEVELED UP AFTER A CERTIAN AGE 
     levelUp() {
-        const levelUpThresholds = [4, 7]
+        const levelUpThresholds = [5]
         if (levelUpThresholds.includes(this.age) && !this.isLevel) {
             this.level();
-        }
+        } 
     }
 
     // METHOD TO LEVEL UP THE PET 
     level() {
+        if (this.isLevel === true) {
+            // THIS IS THE SECOND LEVEL UP SRC
+            panda.src = "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/82afdd83-1747-4ca9-9676-c9b76aea6bb4/df5ui95-652b6d48-e79b-4c33-bbfd-d779bf68b002.png/v1/fill/w_1280,h_1261/ming_lee_red_panda__5__by_roaldmt_df5ui95-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI2MSIsInBhdGgiOiJcL2ZcLzgyYWZkZDgzLTE3NDctNGNhOS05Njc2LWM5Yjc2YWVhNmJiNFwvZGY1dWk5NS02NTJiNmQ0OC1lNzliLTRjMzMtYmJmZC1kNzc5YmY2OGIwMDIucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.CF3whl8EzjKEG762d4gu2beZtn2iJ3ZP0KDUNWQwdbQ"
+        } else {
+            // THIS IS THE FIRST LEVEL UP
+            panda.src = "https://thelowell.org/wp-content/uploads/2022/05/IMG_8039-475x475.png"
+        }
         this.isLevel = true;
         alert(`${this.name} has leveled up into a new form`)
     }
@@ -81,6 +89,9 @@ class Tamagotchi {
 
 // INSTANTIATED THE TAMAGOTCHI
 const tamagotchiPet = new Tamagotchi('petName')
+if (tamagotchiPet) {
+    tamagotchiPet.displayValues()
+}
 
 // LOG THE PET TO THE CONSOLE 
 console.log(tamagotchiPet)
@@ -90,41 +101,71 @@ tamagotchiPet.increaseValues()
 
 // ADDED IN THE FUNCTIONS FOR THE BUTTONS
 function feedPet() {
-    tamagotchiPet.feedPet
+    if (tamagotchiPet.hunger < 10) {
+        tamagotchiPet.hunger++ 
+    }
+    tamagotchiPet.yourPetDied()
+    tamagotchiPet.displayValues()
 }
 
 function sleepPet() {
-    tamagotchiPet.sleepPet
+    if ( tamagotchiPet.sleepiness < 10){
+        tamagotchiPet.sleepiness++
+    }
+        tamagotchiPet.yourPetDied()
+        tamagotchiPet.displayValues()
 }
 
 function boredPet() {
-    tamagotchiPet.boredPet
+    if ( tamagotchiPet.boredom < 10){
+        tamagotchiPet.boredom++
+    }
+        tamagotchiPet.yourPetDied()
+        tamagotchiPet.displayValues()
 }
 
-function agedPet() {
-    tamagotchiPet.agedPet
-}
+
 
 // ADDED IN EVENT LISTENERS FOR BUTTONS
-let hungerButton = document.querySelector(".hungry")
+const hungerButton = document.getElementById("hungry")
 hungerButton.addEventListener("click", () => {
-    tamagotchiPet.feedPet()
+    feedPet()
+    console.log("inside hunger button event listener")
 })
 
 
-const sleepButton = document.getElementById(".sleep")
+const sleepButton = document.getElementById("sleepiness")
 sleepButton.addEventListener("click", () => {
-    tamagotchiPet.sleepPet()
+    sleepPet()
+    console.log("inside sleep button event listener")
 })
 
-const boredButton = document.getElementById(".bored")
+const boredButton = document.getElementById("boredom")
 boredButton.addEventListener("click", () => {
-    tamagotchiPet.boredPet()
+    boredPet()
+    console.log("inside bored button event listener")
 })
 
-const ageButton = document.getElementById(".age")
-ageButton.addEventListener("click", () => {
-    tamagotchiPet.agedPet()
+// const ageButton = document.getElementById("age")
+// ageButton.addEventListener("click", () => {
+//     agedPet()
+//     console.log("inside aged button event listener")
+// })
+
+// TOGGLING LIGHT / DARK MODE
+let buttonTag = document.querySelector('#lightsoff').addEventListener('click', () => {
+    if (document.body.classList.contains("lightMode")) {
+        document.body.classList.remove("lightMode")
+    }
+    document.body.classList.add('darkMode')
+    // buttonTag.setAttribute('class', 'darkMode')
 })
+// console.log('clicked')
 
-
+let buttonTag1 = document.querySelector('#lightson').addEventListener('click', () => {
+    if (document.body.classList.contains("darkMode")) {
+        document.body.classList.remove("darkMode")
+    }
+    document.body.classList.add('lightkMode')
+    // buttonTag.setAttribute('class', 'darkMode')
+})

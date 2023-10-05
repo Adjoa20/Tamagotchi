@@ -35,7 +35,6 @@ p{
 }
 
 img{
-    height: 190px;
     display: block;
     margin:auto;
 }
@@ -82,11 +81,51 @@ button{
 
 }
 
-@keyframes bounceUP {
-    
-}
-
 #red-panda{
+    animation-name: move-bounceUp;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    margin-left: auto;
+    margin-right: auto;
+    height: 190px;
+}
+
+
+@keyframes move-bounceUP {
+    from{
+        height: 50px;
+        width: 50px;
+    }
+    30%{
+        height: 50px;
+        width: 40px;
+    }
+    50%{
+        height: 30px;
+        width: 57px;
+        transform: translateY(240px);
+    }
+    75%{
+        height: 50px;
+        width: 57px;
+    }
+    to{
+        transform: translateY(0px);
+    }
     
 }
 
+.darkMode{
+    background-image: url(https://t3.ftcdn.net/jpg/01/79/66/60/360_F_179666097_4NZIE4C94hfp9eP4b8fCVikYyXgAbKBW.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: whitesmoke;
+}
+
+#panda.src{
+    display: block;
+    margin:auto;
+    height: 190px;
+}
